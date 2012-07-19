@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Popups Test for Selenium</title>
+<script type="text/javascript">
+	function myAlert() {
+		alert("Panic!!!!");
+		document.getElementById('responseArea').innerHTML = "Panic!!!!";
+		return false;
+	}
+
+	function myConfirm() {
+		var r = confirm("Press a button");
+		var x = "";
+		if (r == true) {
+			x = "You pressed OK!";
+		} else {
+			x = "You pressed Cancel!";
+		}
+		document.getElementById('responseArea').innerHTML = x;
+		return false;
+	}
+	
+	function myPrompt(){
+		var name=prompt("Please enter your name","name");
+		var x = "You didn't enter a name!";
+		if (name!=null && name!=""){
+		  x="you entered your name as: " + name + "!!!";
+		}
+		document.getElementById('responseArea').innerHTML = x;
+		return false;
+	}
+</script>
+</head>
+<body>
+
+	<form name="alert" action="" method="get" onsubmit="return myAlert();">
+		<input type="submit" value="Alert Box" />
+	</form>
+	<form name="confirm" action="" method="get"
+		onsubmit="return myConfirm();">
+		<input type="submit" value="Confirm Box" />
+	</form>
+	<form name="prompt" action="" method="get" onsubmit="return myPrompt();">
+		<input type="submit" value="Prompt Box" />
+	</form>
+	
+	<p id="responseArea">
+	Click a button!
+	</p>
+	
+	
+
+</body>
+</html>
